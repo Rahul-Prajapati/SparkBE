@@ -23,7 +23,7 @@ router.post("/signup", async (req, res, next) => {
         });
         await user.save();
 
-        const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, { expiresIn: "1h" });
+        const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
 
         res.status(201).json({ message: "Signup successful", token, user: user });
     }
@@ -56,3 +56,5 @@ router.post("/signin", async (req, res, next) => {
 });
 
 module.exports = { authRoutes: router };
+
+// , { expiresIn: "1h" }

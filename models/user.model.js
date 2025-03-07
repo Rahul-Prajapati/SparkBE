@@ -23,5 +23,15 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    profileImage: { 
+        type: String, 
+        default: "https://img.freepik.com/premium-vector/anonymous-user-circle-icon-vector-illustration-flat-style-with-long-shadow_520826-1931.jpg",
+    },
+    category: {
+         type: String
+    },
+    bio:{
+        type : String
+    },
 });
 module.exports = mongoose.model("User", userSchema);

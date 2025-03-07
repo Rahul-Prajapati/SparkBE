@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const express = require('express')
 const cors = require("cors");
 const { authRoutes } = require("./routes/auth");
+const { userRoutes } = require("./routes/user")
 const app = express()
 const bodyParser = require("body-parser");
 const errorHandler = require("./middleware/errorHandler");
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(errorHandler)
 app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
 
 PORT = process.env.PORT || 5000;
 
